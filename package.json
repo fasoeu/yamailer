@@ -1,14 +1,33 @@
 {
   "name": "yamailer",
   "version": "1.0.0",
-  "description": "",
+  "description": "Simple `nodemailer` wrapper.\r See `./test` folder for examples.",
   "main": "index.js",
   "scripts": {
     "test": "npm install --no-save hotenv && node ./test/send.js"
   },
-  "author": "Michele Milani",
+  "author": "fasoeu@gmail.com",
   "license": "ISC",
   "dependencies": {
     "nodemailer": "^6.3.1"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fasoeu/yamailer.git"
+  },
+  "keywords": [
+    "Yet",
+    "Another",
+    "Mailer",
+    "yamailer",
+    "nodemailer"
+  ],
+  "bugs": {
+    "url": "https://github.com/fasoeu/yamailer/issues"
+  },
+  "homepage": "https://github.com/fasoeu/yamailer#readme"
 }
