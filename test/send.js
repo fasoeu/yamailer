@@ -6,16 +6,16 @@ try {
         , password = process.env.GMAIL_PASSWORD
         , sendmail = new (require(__dirname+'/../index.js'))();
 
-    sendmail.options('smtps://'+encodeURIComponent(username)+':'+encodeURIComponent(password)+'@smtp.gmail.com:465');
-    // sendmail.options({
-    //     host: 'smtp.gmail.com',
-    //     secure: true,
-    //     port: 465,
-    //     auth: {
-    //         user: username,
-    //         pass: password
-    //     },
-    // });
+    //sendmail.options('smtps://'+encodeURIComponent(username)+':'+encodeURIComponent(password)+'@smtp.gmail.com:465');
+    sendmail.options({
+        service: 'gmail',
+        host: 'smtp.gmail.com',
+        auth: {
+            user: username,
+            pass: password
+        }
+    });
+    
     sendmail.from(username);
     sendmail.addRecipient(username);
     sendmail.subject('test mail');
@@ -26,4 +26,5 @@ try {
         .catch(console.log);
 } catch(err) {
     console.log(err);
+    err.response && err.response.indexOf('log in via your web browser and then try again.') ? console.log('Please log in into your Google Account and check for unknown login attempts waiting for being validated.') : null;
 }
