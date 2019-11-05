@@ -1,0 +1,14 @@
+{
+  "name": "yamailer",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "npm install --no-save hotenv && node ./test/send.js"
+  },
+  "author": "Michele Milani",
+  "license": "ISC",
+  "dependencies": {
+    "nodemailer": "^6.3.1"
+  }
+}
