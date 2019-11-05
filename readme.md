@@ -5,6 +5,9 @@ See `./test` folder for examples.
 
 Accepted options are the same ones accepted by `nodemailer`
 
+## Install
+`npm install yamailer`
+
 ## Import
 ```js
 const yamailer = require('yamailer')
