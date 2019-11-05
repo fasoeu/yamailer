@@ -3,7 +3,7 @@
 Simple `nodemailer` wrapper.
 See `./test` folder for examples.
 
-Accepted options are the same ones accepted by `nodemailer`
+Accepted options are the same ones accepted by `nodemailer`.
 
 ## Install
 `npm install yamailer`
@@ -36,7 +36,7 @@ const yamailer = require('yamailer')
     `yam.from('mail@example.com', 'Mail sender name')`
 * **html**: specify email HTML contents\
     `yam.html('<h1>Hello World!</h1>')`
-* **options**: specify options\
+* **options**: specify options
     ```js
     yam.options({
         // options object in the nodemailer way
@@ -45,9 +45,38 @@ const yamailer = require('yamailer')
 * **send**: send email (it returns a `<Promise>`)\
     `yam.send()`
 * **subject**: specify email subject\
-    `yam.subject('What's up?!')`
+    `yam.subject('What\'s up?!')`
 * **text**: specify email plain text contents\
     `yam.subject('Greetings from Malibù!')`
 
 ## Other references
 For additional info about `nodemailer` input `options`: https://www.npmjs.com/package/nodemailer
+
+## Full example
+`npm install yamailer hotenv`
+```js
+const yamailer = require('yamailer')
+    , hotenv = require('hotenv');
+hotenv(__dirname+'/.env');
+
+const yam = new yamailer()
+    , username = process.env.GMAIL_USERNAME
+    , password = process.env.GMAIL_PASSWORD
+    , recipient = process.env.EMAIL_RECIPIENT;
+
+yam.options({
+    service: 'gmail',
+    host: 'smtp.gmail.com',
+    auth: {
+            user: username,
+            pass: password
+    }
+})
+.from(username)
+.addRecipient(recipient)
+.subject('test')
+.text('test')
+.send()
+.then(console.log)
+.catch(console.log);
+```
