@@ -9,7 +9,7 @@
   "author": "fasoeu@gmail.com",
   "license": "ISC",
   "dependencies": {
-    "nodemailer": "^6.4.16"
+    "nodemailer": "^9.1.1"
   },
   "directories": {
     "test": "test"
